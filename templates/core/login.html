@@ -1,94 +1,142 @@
-<!DOCTYPE html>
-<html lang="en">
-
 {% load static %}
 
+<!DOCTYPE html>
+<html>
 <head>
+	<title>Login</title>
+	<style>
+		body {
+			background-color: #1B1C21;
+			font-family: monospace;
+			color: white;
+			text-align: center;
+		}
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+		h1 {
+			margin-top: 50px;
+			font-size: 2.5em;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+		}
 
-    <title>ЭГС - Логин</title>
+		form {
+			display: inline-block;
+			margin-top: 40px;
+		}
 
-    <!-- Custom fonts for this template-->
-    <link href="{%  static 'vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+		label {
+			font-size: 1.2em;
+			margin-bottom: 10px;
+			display: block;
+		}
 
-    <!-- Custom styles for this template-->
-    <link href="{%  static 'css/sb-admin-2.min.css'%}" rel="stylesheet">
 
+
+		input[type="text"], input[type="password"] {
+            color: white;
+			background-color: rgba(0, 0, 0, 0) !important;
+			border: none;
+			{#border-bottom: 2px solid white;#}
+			font-size: 0.8em;
+			padding: 5px;
+			margin-bottom: 20px;
+			width: 300px;
+			outline: none;
+		}
+
+		input[type="submit"] {
+			background-color: transparent;
+			color: white;
+			border: none;
+			font-size: 0.8em;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			cursor: pointer;
+            align-items: baseline;
+            animation: blink 2s linear infinite;
+		}
+
+		input[type="submit"]:hover {
+			background-color: black;
+			color: white;
+		}
+
+        #output {
+			display: inline-block;
+            color: white;
+            font-size: 1em;
+		}
+
+        @keyframes blink {
+			0% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 0;
+			}
+            100% {
+				opacity: 1;
+			}
+		}
+	</style>
 </head>
-
-<body class="bg-gradient-primary">
-
-    <div class="container">
-
-        <!-- Outer Row -->
+<body>
+    <div class="container" style="">
+        <img src="{% static 'img/logo_dark_theme.svg' %}" alt="logo" style="border-radius: 0% !important; width: 15em; height: 15em">
         <div class="row justify-content-center">
-
-            <div class="col-xl-10 col-lg-12 col-md-9">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Добро пожаловать!</h1>
-                                    </div>
-                                    <form class="user" method="POST">
-                                        {% csrf_token %}
-                                        <div class="form-group">
-                                            <input type="username" class="form-control form-control-user"
-                                                id="username" name="username" aria-describedby="emailHelp"
-                                                placeholder="Enter Username...">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="password" name="password" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <input value="Войти" type="submit" class="btn btn-primary btn-user btn-block">
-                                    </form>
-
-                                    {% for message in messages %}
-                                        <p id="messages">{{ message }}</p>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <form method="post">
+                {% csrf_token %}
+                <div align="left" style="padding-left:1rem; width:50em; height:12em; color: cadetblue; font-size: 1.3em; box-shadow: 1px 3px white, -1px -3px white;">
+                    <br>
+                    <div><span id="output"></span><span id="cursor"></span></div><br>
+                    ~Username@<input type="text" id="username" name="username" placeholder="_"><br>
+                    ~Password@<input type="password" id="password" name="password" placeholder="_"><br>
+                    <input type="submit" value="Proceed" style="border-color: gray; border: 2px solid white;">
                 </div>
-
-            </div>
-
+            </form>
+            {% for message in messages %}
+                <p id="messages">{{ message }}</p>
+            {% endfor %}
         </div>
-
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{%  static 'vendor/jquery/jquery.min.js'%}"></script>
-    <script src="{%  static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script>
+		// Define the text to be typed
+		var text = "Welcome to Django terminal!";
 
-    <!-- Core plugin JavaScript-->
-    <script src="{%  static 'vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+		// Get the output and cursor elements
+		var output = document.getElementById("output");
+		{#var cursor = document.getElementById("cursor");#}
 
-    <!-- Custom scripts for all pages-->
-    <script src="{%  static 'js/sb-admin-2.min.js'%}"></script>
+		// Define the typing speed in milliseconds
+		var speed = 50;
 
+		// Set the initial cursor state
+		{#cursor.innerHTML = "|";#}
+
+		// Define the function to type the text
+		function type() {
+			// Get the current text and cursor positions
+			var current = output.innerHTML;
+			var pos = current.length;
+
+			// Check if the text is fully typed
+			if (pos >= text.length) {
+				// Remove the cursor and stop the typing animation
+				{#cursor.style.display = "none";#}
+				clearInterval(timer);
+				return;
+			}
+
+			// Add the next character to the output
+			output.innerHTML = current + text.charAt(pos);
+
+			// Move the cursor to the end of the output
+			{#cursor.style.marginLeft = (pos + 1) + "ch";#}
+		}
+
+		// Start the typing animation
+		var timer = setInterval(type, speed);
+	</script>
 </body>
-
 </html>
