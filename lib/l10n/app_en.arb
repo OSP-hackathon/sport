@@ -1,0 +1,11 @@
+{
+  "helloString": "Hello, World! Do you have already account?",
+  "yes": "Yes",
+  "no": "No",
+  "typeLogin": "Type your login and password",
+  "username": "Username",
+  "login": "Login",
+  "password": "Password",
+  "hintLogin": "Enter your username",
+  "hintPassword": "Enter your password"
+}
