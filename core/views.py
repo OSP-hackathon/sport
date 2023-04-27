@@ -44,10 +44,11 @@ def registerPage(request):
             return redirect('home')
         else:
             print(form.errors)
-    context = {'form': form}
+    context = {'form': form,
+               'user' : request.user.username}
 
     return render(request, 'core/register.html', context=context)
 
 def profilePage(request):
-    context = {}
+    context = {'user' : request.user.username}
     return render(request, 'core/profile.html', context=context)
