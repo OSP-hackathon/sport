@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .forms import CreateUserForm
+from .models import SiteUser
 
 # Create your views here.
 
@@ -28,3 +30,24 @@ def loginPage(request):
                 return render(request, 'core/login.html', context=context)
 
         return render(request, 'core/login.html', context=context)
+
+def registerPage(request):
+    context = {}
+
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            b = form.save()
+            a = SiteUser(user=b)
+            a.save()
+            return redirect('home')
+        else:
+            print(form.errors)
+    context = {'form': form}
+
+    return render(request, 'core/register.html', context=context)
+
+def profilePage(request):
+    context = {}
+    return render(request, 'core/profile.html', context=context)

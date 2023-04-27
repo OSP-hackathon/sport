@@ -91,44 +91,6 @@
         }
     }
 
-    #sidebarToggle {
-        width: 2.5rem;
-        height: 2.5rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        cursor: pointer;
-
-        &::after {
-            font-weight: 900;
-            content: '\f104';
-            font-family: 'Font Awesome 5 Free';
-            margin-right: 0.1rem;
-        }
-
-        &:hover {
-            text-decoration: none;
-        }
-
-        &:focus {
-            outline: none;
-        }
-    }
-
-    &.toggled {
-        width: 0 !important;
-        overflow: hidden;
-
-        #sidebarToggle::after {
-            content: '\f105';
-            font-family: 'Font Awesome 5 Free';
-            margin-left: 0.25rem;
-        }
-
-        .sidebar-card {
-            display: none;
-        }
-    }
-
     .sidebar-brand {
         height: $topbar-base-height;
         text-decoration: none;
@@ -149,9 +111,6 @@
         }
     }
 
-    hr.sidebar-divider {
-        margin: 0 1rem 1rem;
-    }
 
     .sidebar-heading {
         text-align: center;

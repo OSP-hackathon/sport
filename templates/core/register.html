@@ -86,15 +86,16 @@
         <div class="row justify-content-center">
             <form method="post">
                 {% csrf_token %}
-                <div align="left" style="padding-left:1rem; width:50em; height:12em; color: cadetblue; font-size: 1.3em; box-shadow: 1px 3px white, -1px -3px white;">
+                <div align="left" style="padding-left:1rem; width:50em; height:14.5em; color: cadetblue; font-size: 1.3em; box-shadow: 1px 3px white, -1px -3px white;">
                     <br>
                     <div><span id="output"></span><span id="cursor"></span></div><br>
-                    ~Username@<input type="text" id="username" name="username" placeholder="_"><br>
-                    ~Password@<input type="password" id="password" name="password" placeholder="_"><br>
-                    <input type="submit" value="Proceed" style="border-color: gray; border: 2px solid white;">
+                    ~Username@{{form.username}}<br>
+                    ~Password@{{form.password1}}<br>
+                    ~Repeat password@{{form.password2}}<br>
+                    <input type="submit" value="Register" style="border-color: gray; border: 2px solid white;">
                 </div>
             </form>
-            <p><a style="color: white"href="{% url 'register' %}">I don't have an account</a></p>
+            <p><a style="color: white"href="{% url 'login' %}">I already have an account</a></p>
             {% for message in messages %}
                 <p id="messages">{{ message }}</p>
             {% endfor %}
