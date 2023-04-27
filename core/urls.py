@@ -8,6 +8,7 @@ from vhack import settings
 from .views import *
 
 urlpatterns = [
-     path('', home, name='home'),
+     path('home', home, name='home'),
+     path('login', loginPage, name='login')
 ]
 
