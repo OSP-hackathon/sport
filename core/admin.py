@@ -8,3 +8,10 @@ class SiteUserAdmin(admin.ModelAdmin):
 
 
 admin.site.register(SiteUser, SiteUserAdmin)
+
+class EventAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'type')
+    search_fields = ('id',)
+
+
+admin.site.register(Event, EventAdmin)
