@@ -1,14 +1,57 @@
+from calendar import HTMLCalendar
+from datetime import datetime
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
+
+from .classes import EventCalendar
 from .forms import CreateUserForm
-from .models import SiteUser
+from .models import SiteUser, Event
+from core.models import Event
+from django.http import JsonResponse
+
 
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'core/index.html')
+    year = datetime.now().year
+    month = datetime.now().month
+    cal = EventCalendar(list(Event.objects.all())).formatmonth(year, month)
+    context = {'cal': cal}
+    return render(request, 'core/index.html', context=context)
+
+@csrf_exempt
+def loginApi(request):
+    if request.method == 'POST':
+        print(request.POST)
+        username = request.POST.get("username")
+        password = request.POST.get('password')
+        print("Username: " + username)
+        users2 = list(User.objects.all())
+        users = list(User.objects.filter(username=username))
+        if len(users2) > 0:
+            #login(request, user)
+            data = {
+                "success": True,
+                "username": users2[0].username,
+                "uid": users2[0].pk
+            }
+            return JsonResponse(data)
+        else:
+            data = {
+                "success": False,
+                "message": "Incorrect auth data"
+            }
+            return JsonResponse(data)
+    return JsonResponse( {
+                "success": False,
+                "message": "INVALID REQUEST"
+            })
+
 
 
 def loginPage(request):
