@@ -51,6 +51,11 @@ final ThemeData lightTheme = ThemeData.light(
       fontFamily: 'JetBrainsMono',
       fontSize: 10,
     ),
+    titleMedium: TextStyle(
+      color: UiColors.greyText,
+      fontFamily: 'JetBrainsMono',
+      fontSize: 14,
+    ),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(

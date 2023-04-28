@@ -86,8 +86,8 @@ class _MyAppState extends State<MyApp> {
         AppRoutes.sportsmanTasksURL: (_) => const SportsmanTasksPage(),
         AppRoutes.sportsmanSettingsURL: (_) => const SportsmanSettingsPage(),
       },
-      // initialRoute: AppRoutes.initUrl  ,
-      initialRoute: AppRoutes.sportsmanURL,
+      initialRoute: AppRoutes.initUrl  ,
+      // initialRoute: AppRoutes.sportsmanURL,
     );
   }
 }

@@ -14,10 +14,9 @@ class SideBar extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(14)),
         color: Theme.of(context).primaryColor,
-        
       ),
-      child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Expanded(
           flex: 30,
           child: Image.asset('assets/images/logo_fsp.png'),
@@ -30,9 +29,11 @@ class SideBar extends StatelessWidget {
                 decoration: const BoxDecoration(
                   color: Colors.transparent,
                 ),
-                width: 200,
-                selectedIconTheme: IconThemeData(color: Theme.of(context).highlightColor),
-                selectedTextStyle: TextStyle(color: Theme.of(context).highlightColor),
+                width: 150,
+                selectedIconTheme:
+                    IconThemeData(color: Theme.of(context).highlightColor),
+                selectedTextStyle:
+                    TextStyle(color: Theme.of(context).highlightColor),
                 textStyle: TextStyle(color: Colors.white),
                 iconTheme: IconThemeData(color: Colors.white),
               ),
@@ -109,7 +110,10 @@ class SideBar extends StatelessWidget {
             flex: 40,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [Icon(Icons.exit_to_app, color: Colors.white), Text('Выйти', style: TextStyle(color: Colors.white))],
+              children: const [
+                Icon(Icons.exit_to_app, color: Colors.white),
+                Text('Выйти', style: TextStyle(color: Colors.white))
+              ],
             ))
       ]),
     );

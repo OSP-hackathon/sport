@@ -11,6 +11,8 @@ class SportsmanStatisticsPage extends StatefulWidget {
 class _SportsmanStatisticsPageState extends State<SportsmanStatisticsPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Text("Здесь могла быть ваша ${widget.runtimeType} страница"),
+    );
   }
 }

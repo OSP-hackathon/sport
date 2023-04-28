@@ -51,6 +51,11 @@ final ThemeData darkTheme = ThemeData.dark(
       fontFamily: 'JetBrainsMono',
       fontSize: 10,
     ),
+    titleMedium: TextStyle(
+      color: UiColors.greyText,
+      fontFamily: 'JetBrainsMono',
+      fontSize: 14,
+    ),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
@@ -62,7 +67,6 @@ final ThemeData darkTheme = ThemeData.dark(
       ),
     ),
   ),
-  
   canvasColor: UiColors.darkBackground,
   primaryColor: UiColors.main,
   scaffoldBackgroundColor: UiColors.darkBackground,
