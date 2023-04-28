@@ -14,7 +14,6 @@ def home(request):
 def loginPage(request):
     context = {}
     if request.user.is_authenticated:
-        logout(request)
         return redirect('home')
     else:
         if request.method == 'POST':
@@ -52,3 +51,7 @@ def registerPage(request):
 def profilePage(request):
     context = {'user' : request.user.username}
     return render(request, 'core/profile.html', context=context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')

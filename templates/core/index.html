@@ -1,29 +1,31 @@
 {% extends 'core/base.html' %}
+{% load static %}
+
 
 {% block content %}
 
     <style>
         .header {
-          min-height: 20%;
-          display: flex;
+            min-height: 20%;
+            display: flex;
         }
 
         .bottom {
-          min-height: 80%;
-          display: flex;
-          justify-content: space-between;
-
+            min-height: 80%;
+            display: flex;
+            justify-content: space-between;
         }
 
         .check {
-          min-width: 20%;
+            min-width: 20%;
         }
 
         .calendar {
-          min-width: 55%;
+            min-width: 55%;
         }
+
         .hot {
-          min-width: 20%;
+            min-width: 20%;
         }
 
         div {
@@ -31,184 +33,249 @@
         }
 
         .upper-left-corner {
-          display: flex;
+            display: flex;
         }
 
         .left-bottom {
-          display: flex;
+            display: flex;
         }
 
-        .card{
-            border-radius: 15px;
-            margin-bottom: 1em;
-            margin-left: 1em;
+        /* Dropdown Button */
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: center;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: center;
+            background-color: #f1f1f1;
+            min-width: 20px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
         }
     </style>
-<!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <!-- Content Row -->
 
-                    <section style="display: flex">
-  <section>
-    <div class="upper-left-corner">
-          <div class="left-part">
-            <div class="left-top">
-        {#      Привет, Чемпион!#}
-                <div class="card h-100 py-2" style="border-radius: 15px; width: 30em">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    Привет, {{ user }}!</div>
-                            </div>
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Отличное время для тренировки!</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="left-bottom" >
-              <div>
-        {#        11 Дней подряд#}
-                  <div class="card h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    11</div>
-                            </div>
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                дней тренировок подряд</div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <div>
-        {#        2600 рейтинг#}
-                  <div class="card h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                   2600</div>
-                            </div>
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                рейтинг</div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-          </section>
-          <section style="width: 100vw; height: 40vh">
-            <div class="bottom">
-                <div class="check">
-                    <div class="card h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    5!</div>
-                            </div>
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                раз чекнули резюме</div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-              <div class="calendar">
-                <div class="card h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    calendar!</div>
-                            </div>
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                eeeee!</div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <div class="hot">
-                    <div class="card h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    5!</div>
-                            </div>
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                deadlines</div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </section>
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+        <!-- Content Row -->
 
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Рейтинг</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+        <section style="display: flex;">
+            <section>
+                <div class="upper-left-corner">
+                    <div class="left-part">
+                        <div class="left-top">
+                            {#      Привет, Чемпион!#}
+                            <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="h5 mb-0 font-weight-bold text-gray">
+                                                Привет, {{ user }}!
+                                            </div>
+                                        </div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Отличное время для тренировки!
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Color System -->
-                            <div class="row">
-                                <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card h-100 py-2">
+                        <div class="left-bottom">
+                            <div>
+                                {#        11 Дней подряд#}
+                                <div class="card h-100 py-3" style="height: 8em">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    there was color  </div>
-
+                                                <div class="h5 mb-0 font-weight-bold text-gray">
+                                                    11
+                                                </div>
+                                            </div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                дней тренировок подряд
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div>
+                                {#        2600 рейтинг#}
+                                <div class="card h-100 py-2" style="width: 15em">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="h5 mb-0 font-weight-bold text-gray">
+                                                    2600
+                                                </div>
+                                            </div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                рейтинг
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
-                <!-- /.container-fluid -->
+            </section>
+            <section style="width: 39vw; height: 37vh">
+                <div class="bottom">
+                    <div class="check">
+                        <div class="card h-100 py-2" style="width: 18rem; height: 6rem">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="h5 mb-0 font-weight-bold text-gray">
+                                            5!
+                                        </div>
+                                    </div>
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        раз чекнули резюме
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="check">
+                        <div class="card h-100 py-2" style="width: 15rem">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="dropdown" style="margin-left: 70px">
+                <img class="img-profile rounded-circle" style="width: 40px; border-radius: 0% !important;"
+                     src="{% static 'img/undraw_profile.svg' %}">
+                <div class="dropdown-content" align="left">
+                    <a href="{% url 'logoutUser' %}">Logout</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="row">
+
+            <!-- Area Chart -->
+            <div class="graph">
+                <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Рейтинг</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                 aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Dropdown Header:</div>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart">Привет</canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Content Row -->
+            <div class="column">
+
+                <!-- Content Column -->
+                <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
+                     <div class="card-body">
+                         <div class="row no-gutters align-items-center">
+                             <div class="col mr-2">
+                                 <div class="h5 mb-0 font-weight-bold text-gray">
+                                     Привет, {{ user }}!
+                                 </div>
+                             </div>
+                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                 Number one!
+                             </div>
+                         </div>
+                     </div>
+                </div>
+
+                <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
+                     <div class="card-body">
+                         <div class="row no-gutters align-items-center">
+                             <div class="col mr-2">
+                                 <div class="h5 mb-0 font-weight-bold text-gray">
+                                     Привет, {{ user }}!
+                                 </div>
+                             </div>
+                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                 Number two!
+                             </div>
+                         </div>
+                     </div>
+                </div>
+
+                <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
+                     <div class="card-body">
+                         <div class="row no-gutters align-items-center">
+                             <div class="col mr-2">
+                                 <div class="h5 mb-0 font-weight-bold text-gray">
+                                     Привет, {{ user }}!
+                                 </div>
+                             </div>
+                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                 Number three!
+                             </div>
+                         </div>
+                     </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
 {% endblock %}

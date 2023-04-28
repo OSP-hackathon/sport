@@ -34,7 +34,7 @@
             style="padding-left:1rem; padding-top:1rem; padding-bottom: 1rem; border-radius: 15px;">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
                 <div class="sidebar-brand-icon">
                     <img src="{% static 'img/another_logo.svg' %}"
                          alt="logo_navbar"
@@ -42,16 +42,15 @@
                 </div>
             </a>
 
+
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
-{#                    <i class="fas fa-fw fa-tachometer-alt"></i>#}
                     <img src="{% static 'img/dashboard.svg' %}">
                     <span>Главная</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="#">
-{#                    <i class="fas fa-fw fa-cog"></i>#}
                     <img src="{% static 'img/stats.svg' %}">
                     <span>Статистика</span>
                 </a>
@@ -59,8 +58,7 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="#">
-{#                    <i class="fas fa-fw fa-cog"></i>#}
-                    <img src="{% static 'img/people.svg' %}">
+                    <img src="{% static 'img/stats.svg' %}">
                     <span>Команды</span>
                 </a>
             </li>
@@ -83,7 +81,6 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="#">
-{#                    <i class="fas fa-fw fa-cog"></i>#}
                     <img src="{% static 'img/sport.svg' %}">
                     <span>Тренировки</span>
                 </a>
@@ -91,19 +88,18 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="#">
-{#                    <i class="fas fa-fw fa-cog"></i>#}
                     <img src="{% static 'img/list.svg' %}">
                     <span>Задачи</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
-{#                    <i class="fas fa-fw fa-cog"></i>#}
+                <a class="nav-link" href="{% url 'profile' %}">
                     <img src="{% static 'img/settings.svg' %}">
                     <span>Настройки</span>
                 </a>
             </li>
+
         </ul>
 
         <ul class="navbar-nav sidebar sidebar-dark"

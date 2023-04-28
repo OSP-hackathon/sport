@@ -66,7 +66,7 @@ body {
   line-height: 1.5;
   color: #858796;
   text-align: left;
-  background-color: #fff;
+  background-color: #1b1c21;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -4489,10 +4489,12 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #2d2e37;
   background-clip: border-box;
-  border: 1px solid #e3e6f0;
+  border: 1px solid #2d2e37;
   border-radius: 0.35rem;
+  margin-bottom: 1em;
+  margin-left: 1em;
 }
 
 .card > hr {
@@ -6411,13 +6413,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #4e73df !important;
-}
-
-a.bg-primary:hover, a.bg-primary:focus,
-button.bg-primary:hover,
-button.bg-primary:focus {
-  background-color: #2653d4 !important;
+  background-color: #2d2e37 !important;
 }
 
 .bg-secondary {
@@ -9592,15 +9588,15 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #4e73df !important;
+  color: #d9d9d9!important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
-  color: #224abe !important;
+  color: #d9d9d9 !important;
 }
 
 .text-secondary {
-  color: #858796 !important;
+  color: #ededed !important;
 }
 
 a.text-secondary:hover, a.text-secondary:focus {
@@ -9797,7 +9793,7 @@ a:focus {
 }
 
 #wrapper #content-wrapper {
-  background-color: #f8f9fc;
+  background-color: #1b1c21;
   width: 100%;
   overflow-x: hidden;
 }
@@ -10023,8 +10019,8 @@ a:focus {
   color: #6e707e !important;
 }
 
-.text-gray-800 {
-  color: #5a5c69 !important;
+.text-gray {
+  color: #ffffff !important;
 }
 
 .text-gray-900 {
