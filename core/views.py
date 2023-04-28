@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import CreateUserForm
+from .forms import CreateUserForm, SiteUserForm
 from .models import SiteUser
+import os
 
 # Create your views here.
 
@@ -49,7 +50,27 @@ def registerPage(request):
     return render(request, 'core/register.html', context=context)
 
 def profilePage(request):
-    context = {'user' : request.user.username}
+    obj = SiteUser.objects.get(user=request.user)
+    form = SiteUserForm()
+    if request.method == 'POST':
+        a = SiteUser.objects.get(user=request.user)
+        form = SiteUserForm(request.POST, request.FILES, instance=a)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+        else:
+            print(form.errors)
+    for field in obj._meta.fields:
+        val = getattr(obj, field.name)
+        if 'date' in field.name:
+            if val is not None:
+                form.initial[f'{field.name}'] = val.isoformat()
+        else:
+            if val is not None:
+                form.initial[f'{field.name}'] = val
+    context = {'form': form,
+               'user': request.user}
+
     return render(request, 'core/profile.html', context=context)
 
 def logoutUser(request):

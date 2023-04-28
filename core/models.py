@@ -34,6 +34,14 @@ class SiteUser(models.Model):
                             default='SP',
                             verbose_name='Роль',
                             blank=True)
+    phone = models.CharField(max_length=255,
+                             verbose_name='Телефон',
+                             blank=True,
+                             null=True)
+    date_of_birth = models.DateField(verbose_name='Дата начала', blank=True, null=True)
+    inn = models.FileField(null=True, blank=True, upload_to='upload_messages', verbose_name='ИНН')
+    snils = models.FileField(null=True, blank=True, upload_to='upload_messages', verbose_name='СНИЛС')
+    passport = models.FileField(null=True, blank=True, upload_to='upload_messages', verbose_name='Паспорт')
 
     class Meta:
         verbose_name = 'Пользователь'
