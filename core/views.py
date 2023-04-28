@@ -10,6 +10,9 @@ from .models import SiteUser
 def home(request):
     return render(request, 'core/index.html')
 
+def events(request):
+    return render(request, 'core/events.html')
+
 
 def loginPage(request):
     context = {}

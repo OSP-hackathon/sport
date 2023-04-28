@@ -19,7 +19,7 @@ class SiteUser(models.Model):
                             blank=True)
     rating = models.IntegerField(blank=True, null=True, verbose_name='Рейтинг')
     awards = models.TextField(blank=True, null=True, verbose_name='Достижения')
-    skills = ArrayField(base_field = ArrayField(models.CharField(blank=True),),
+    skills = ArrayField(base_field = ArrayField(models.CharField(blank=True, max_length=255),),
                         blank=True,
                         null=True,
                         verbose_name='Навыки')

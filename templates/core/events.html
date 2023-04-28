@@ -1,0 +1,133 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <style>
+    .left-bottom {
+            display: flex;
+        }
+    </style>
+<body>
+
+    <div class="container-fluid">
+                <section style="display: flex;">
+            <section>
+                <div class="upper-left-corner">
+                    <div class="left-part">
+                        <div class="left-top">
+                            {#      Привет, Чемпион!#}
+                            <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="h5 mb-0 font-weight-bold text-gray">
+                                                Привет, {{ user }}!
+                                            </div>
+                                        </div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Отличное время для тренировки!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h1>Your tasks</h1>
+                            <br>
+                        </div>
+                        <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
+                                <div class="card-body">
+                                    <div class="row no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="h5 mb-0 font-weight-bold text-gray">
+                                                ФСП Хакатон Воронеж
+                                            </div>
+                                            <div>
+                                                <br>
+                                                <p>Описание: fcevhgjfgnrvehbfjndklhgcfehvbfkgjbecfghbjvk
+                                                    nlm;fdkwfg ,hjnlkmebdhvcjnkhvn
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <p>Begin:12 days</p>
+                                            <p><b>100 участников</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
+                                <div class="card-body">
+                                    <div class="row no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="h5 mb-0 font-weight-bold text-gray">
+                                                ФСП Хакатон Воронеж
+                                            </div>
+                                            <div>
+                                                <br>
+                                                <p>Описание: fcevhgjfgnrvehbfjndklhgcfehvbfkgjbecfghbjvk
+                                                    nlm;fdkwfg ,hjnlkmebdhvcjnkhvn
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <p>Begin:12 days</p>
+                                            <p><b>100 участников</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
+                                <div class="card-body">
+                                    <div class="row no-gutters">
+                                        <div class="col mr-2">
+                                            <div class="h5 mb-0 font-weight-bold text-gray">
+                                                ФСП Хакатон Воронеж
+                                            </div>
+                                            <div>
+                                                <br>
+                                                <p>Описание: fcevhgjfgnrvehbfjndklhgcfehvbfkgjbecfghbjvk
+                                                    nlm;fdkwfg ,hjnlkmebdhvcjnkhvn
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <p>Begin:12 days</p>
+                                            <p><b>100 участников</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </section>
+            <section style="width: 39vw; height: 37vh">
+                <div class="bottom">
+
+                    <div class="check">
+                        <div class="h-100 py-2" style="width: 15rem">
+                            <div>
+                                <div class="row no-gutters align-items-center">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="dropdown" style="margin-left: 70px">
+                <img class="img-profile rounded-circle" style="width: 40px; border-radius: 0% !important;"
+                     src="{% static 'img/undraw_profile.svg' %}">
+                <div class="dropdown-content" align="left">
+                    <a href="{% url 'logoutUser' %}">Logout</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+
+{% endblock %}

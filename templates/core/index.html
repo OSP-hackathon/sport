@@ -11,25 +11,30 @@
         }
 
         .bottom {
-            min-height: 80%;
+            min-height: 75%;
             display: flex;
             justify-content: space-between;
+            max-width: 50%;
         }
 
-        .check {
-            min-width: 20%;
+        .search {
+          flex-grow: 1;
+          min-width: 100px;
         }
 
         .calendar {
-            min-width: 55%;
+          min-width: 10%;
         }
-
         .hot {
-            min-width: 20%;
+          min-width: 10%;
+        }
+        .check {
+            min-width: 10%;
         }
 
         div {
             border-radius: 15px;
+            margin: 1px;
         }
 
         .upper-left-corner {
@@ -93,48 +98,48 @@
     <div class="container-fluid">
         <!-- Content Row -->
 
-        <section style="display: flex;">
-            <section>
-                <div class="upper-left-corner">
-                    <div class="left-part">
-                        <div class="left-top">
-                            {#      Привет, Чемпион!#}
-                            <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h5 mb-0 font-weight-bold text-gray">
-                                                Привет, {{ user }}!
-                                            </div>
-                                        </div>
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Отличное время для тренировки!
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+<section style="display: flex">
+  <section>
+    <div class="upper-left-corner">
+  <div class="left-part">
+    <div class="left-top">
+{#      Привет, Чемпион!#}
+        <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="h5 mb-0 font-weight-bold text-gray">
+                            Привет, {{ user }}!
                         </div>
-                        <div class="left-bottom">
-                            <div>
-                                {#        11 Дней подряд#}
-                                <div class="card h-100 py-3" style="height: 8em">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="h5 mb-0 font-weight-bold text-gray">
-                                                    11
-                                                </div>
-                                            </div>
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                дней тренировок подряд
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                {#        2600 рейтинг#}
-                                <div class="card h-100 py-2" style="width: 15em">
+                    </div>
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        Отличное время для тренировки!
+                                       </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left-bottom" >
+      <div>
+{#        11 Дней подряд#}
+          <div class="card h-100 py-3" style="height: 8em">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <div class="h5 mb-0 font-weight-bold text-gray">
+                              11
+                          </div>
+                      </div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                          дней тренировок подряд
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div>
+{#        2600 рейтинг#}
+          <div class="card h-100 py-2" style="width: 15em">
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
@@ -148,14 +153,91 @@
                                         </div>
                                     </div>
                                 </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+  <section style="width: 100vw; height: 40vh">
+    <div class="header">
+{#        хэдер#}
+      <div class="search">
+        <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+        </ul>
+      </div>
+          <div class="profile">
+{#           Profile#}
+              <div class="dropdown" style="margin-left: 70px">
+                <img class="img-profile rounded-circle" style="width: 40px; border-radius: 0 !important;"
+                     src="{% static 'img/undraw_profile.svg' %}">
+                <div class="dropdown-content">
+                    <a href="{% url 'logoutUser' %}">Logout</a>
+                </div>
+            </div>
+          </div>
+    </div>
+    <div class="bottom">
+        <div class="check">
+            <div class="card h-100 py-2" style="width: 18rem; height: 6rem">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="h5 mb-0 font-weight-bold text-gray">
+                                            Smth
+                                        </div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        else
+                                    </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <section style="width: 39vw; height: 37vh">
-                <div class="bottom">
-                    <div class="check">
+        </div>
+      <div class="calendar">
+{#            <div class="check">#}
+                        <div class="card h-100 py-2" style="width: 18rem; height: 6rem">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="h5 mb-0 font-weight-bold text-gray">
+                                            Календарь
+                                        </div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        переверну
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+{#                    </div>#}
+      </div>
+      <div class="hot">
+
+{#        <div class="check">#}
                         <div class="card h-100 py-2" style="width: 18rem; height: 6rem">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
@@ -171,110 +253,81 @@
                             </div>
                         </div>
                     </div>
-                    <div class="check">
-                        <div class="card h-100 py-2" style="width: 15rem">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="dropdown" style="margin-left: 70px">
-                <img class="img-profile rounded-circle" style="width: 40px; border-radius: 0% !important;"
-                     src="{% static 'img/undraw_profile.svg' %}">
-                <div class="dropdown-content" align="left">
-                    <a href="{% url 'logoutUser' %}">Logout</a>
-                </div>
-            </div>
-        </section>
+      </div>
+{#    </div>#}
+  </section>
+</section>
 
         <div class="row">
 
             <!-- Area Chart -->
-            <div class="graph">
-                <div class="col-xl-8 col-lg-7">
+
+            <div class="col-lg-7">
                 <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
-                    <div
-                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Рейтинг</h6>
-                        <div class="dropdown no-arrow">
-                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                 aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Dropdown Header:</div>
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Рейтинг</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="myAreaChart"></canvas>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <div class="chart-area">
-                            <canvas id="myAreaChart">Привет</canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
             </div>
 
             <!-- Content Row -->
-            <div class="column">
+{#            <div class="column">#}
 
                 <!-- Content Column -->
-                <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
-                     <div class="card-body">
-                         <div class="row no-gutters align-items-center">
-                             <div class="col mr-2">
-                                 <div class="h5 mb-0 font-weight-bold text-gray">
-                                     Привет, {{ user }}!
-                                 </div>
-                             </div>
-                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                 Number one!
-                             </div>
-                         </div>
-                     </div>
-                </div>
+{#                <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">#}
+{#                     <div class="card-body">#}
+{#                         <div class="row no-gutters align-items-center">#}
+{#                             <div class="col mr-2">#}
+{#                                 <div class="h5 mb-0 font-weight-bold text-gray">#}
+{#                                     Привет, {{ user }}!#}
+{#                                 </div>#}
+{#                             </div>#}
+{#                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">#}
+{#                                 Number one!#}
+{#                             </div>#}
+{#                         </div>#}
+{#                     </div>#}
+{#                </div>#}
+{##}
+{#                <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">#}
+{#                     <div class="card-body">#}
+{#                         <div class="row no-gutters align-items-center">#}
+{#                             <div class="col mr-2">#}
+{#                                 <div class="h5 mb-0 font-weight-bold text-gray">#}
+{#                                     Привет, {{ user }}!#}
+{#                                 </div>#}
+{#                             </div>#}
+{#                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">#}
+{#                                 Number two!#}
+{#                             </div>#}
+{#                         </div>#}
+{#                     </div>#}
+{#                </div>#}
+{##}
+{#                <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">#}
+{#                     <div class="card-body">#}
+{#                         <div class="row no-gutters align-items-center">#}
+{#                             <div class="col mr-2">#}
+{#                                 <div class="h5 mb-0 font-weight-bold text-gray">#}
+{#                                     Привет, {{ user }}!#}
+{#                                 </div>#}
+{#                             </div>#}
+{#                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">#}
+{#                                 Number three!#}
+{#                             </div>#}
+{#                         </div>#}
+{#                     </div>#}
+{#                </div>#}
 
-                <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
-                     <div class="card-body">
-                         <div class="row no-gutters align-items-center">
-                             <div class="col mr-2">
-                                 <div class="h5 mb-0 font-weight-bold text-gray">
-                                     Привет, {{ user }}!
-                                 </div>
-                             </div>
-                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                 Number two!
-                             </div>
-                         </div>
-                     </div>
-                </div>
-
-                <div class="card h-100 py-2" style="border-radius: 15px; width: 31em">
-                     <div class="card-body">
-                         <div class="row no-gutters align-items-center">
-                             <div class="col mr-2">
-                                 <div class="h5 mb-0 font-weight-bold text-gray">
-                                     Привет, {{ user }}!
-                                 </div>
-                             </div>
-                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                 Number three!
-                             </div>
-                         </div>
-                     </div>
-                </div>
-
-            </div>
+{#            </div>#}
         </div>
     </div>
     <!-- /.container-fluid -->
