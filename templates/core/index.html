@@ -175,24 +175,7 @@
                         <div class="card h-100 py-2" style="width: 15rem">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="dropdown" style="margin-left: 70px">
-                <img class="img-profile rounded-circle" style="width: 40px; border-radius: 0% !important;"
-                     src="{% static 'img/undraw_profile.svg' %}">
-                <div class="dropdown-content" align="left">
-                    <a href="{% url 'logoutUser' %}">Logout</a>
-                </div>
-            </div>
-        </section>
-
-        <div class="row">
-
-                        <div class="caldr">
+        <div class="caldr">
                          <center>{{ cal|safe }}</center>
               <style>
                 .month{
@@ -221,6 +204,22 @@
                 }
               </style>
             </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="dropdown" style="margin-left: 70px">
+                <img class="img-profile rounded-circle" style="width: 40px; border-radius: 0% !important;"
+                     src="{% static 'img/undraw_profile.svg' %}">
+                <div class="dropdown-content" align="left">
+                    <a href="{% url 'logoutUser' %}">Logout</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="row">
 
             <!-- Area Chart -->
             <div class="graph">
